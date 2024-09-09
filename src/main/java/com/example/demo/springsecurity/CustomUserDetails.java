@@ -1,5 +1,6 @@
 package com.example.demo.springsecurity;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.demo.entities.User;
+import com.example.demo.enums.Role;
 
 public class CustomUserDetails implements UserDetails {
 
@@ -18,8 +20,10 @@ public class CustomUserDetails implements UserDetails {
 	{
 		this.userName = user.getUserName();
 		this.passWord = user.getPassWord();
+		roles = new ArrayList<>();
 		
-		roles.add(new CustomGrantedAuthority(user.getRoleName()));
+		String roleName = user.getRoleName() == Role.User ? "USER" : "HOSPITAL";
+		roles.add(new CustomGrantedAuthority(roleName));
 	}
 	
 	@Override

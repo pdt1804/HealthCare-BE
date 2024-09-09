@@ -2,6 +2,8 @@ package com.example.demo.entities;
 
 import java.util.Date;
 
+import com.example.demo.enums.Role;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -20,7 +22,7 @@ public class User {
 	private String userName;
 	private String passWord;
 	private String email;
-	private String roleName;
+	private Role roleName;
 	private Date dateCreated;
 	private boolean isValid;
 	

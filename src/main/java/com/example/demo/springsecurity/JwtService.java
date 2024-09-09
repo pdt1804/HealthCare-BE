@@ -27,7 +27,7 @@ public class JwtService {
 	
 	public String generateRefreshToken(String userName) {
 		Map<String, Object> claims = new HashMap<>();
-		return createToken(claims, userName, System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 7, SignatureAlgorithm.HS512);
+		return createToken(claims, userName, System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 7, SignatureAlgorithm.HS256);
 	}
 
 	private String createToken(Map<String, Object> claims, String userName, long time, SignatureAlgorithm Algor) {
